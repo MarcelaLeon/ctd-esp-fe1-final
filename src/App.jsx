@@ -6,7 +6,10 @@ import PaginaFavoritos from "./paginas/Favoritos.pagina";
 import PaginaDetalle from "./paginas/Detalle.pagina";
 import Encabezado from "./componentes/layout/encabezado.componente";
 
+
 function App() {
+
+  
   return (
     <div className="App">
       <Encabezado />
