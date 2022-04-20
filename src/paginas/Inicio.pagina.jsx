@@ -24,7 +24,7 @@ const PaginaInicio = () => {
     }
 
     useEffect(() => {
-        searchPersonaje(buscador).then((data) => {
+          searchPersonaje(buscador).then((data) => {
           setPersonajes(data);
         });
       }, [buscador]);
@@ -32,7 +32,7 @@ const PaginaInicio = () => {
     return <div className="container">
         <div className="actions">
             <h3>Catálogo de Personajes</h3>
-            <button className="danger">Test Button</button>
+            <button className="danger" onClick={()=>{setBuscador('')}}>Limpiar filtros</button>
         </div>
         <Filtros buscador={buscador} setBuscador={setBuscador}/>
         <Paginacion pagina={pagina} actualizarPagina={actualizarPagina}/>

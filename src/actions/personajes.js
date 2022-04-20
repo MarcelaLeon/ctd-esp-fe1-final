@@ -25,3 +25,9 @@ export const deletePersonajeFavoritos = (personaje)=> {
         payload: {personaje: personaje}
     }
 }
+
+export const deleteTodosFavoritos = ()=> {
+    return {
+        type: "ELIMINAR_TODOS_FAVORITOS",
+    }
+}

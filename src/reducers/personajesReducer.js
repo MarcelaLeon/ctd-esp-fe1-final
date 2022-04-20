@@ -24,6 +24,11 @@ const reducer = (state= initialState, action) => {
             ...state,
             favoritos: [...state.favoritos.filter(personaje => personaje.name !== action.payload.personaje.name)]
         }
+        case "ELIMINAR_TODOS_FAVORITOS":
+          return {
+              ...state,
+              favoritos: []
+          }
     default:
       return {...state};
   }
