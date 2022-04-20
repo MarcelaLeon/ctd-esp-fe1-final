@@ -4,7 +4,7 @@ import './tarjeta-personaje.css';
 import {useDispatch} from "react-redux";
 import { seleccionarPersonaje , addPersonajeFavoritos, deletePersonajeFavoritos} from '../../actions/personajes';
 import { useSelector } from "react-redux";
-import { useLocation } from 'react-router-dom';
+import { useLocation, Link } from 'react-router-dom';
 
 /**
  * Tarjeta para cada personaje dentro de la grilla de personajes. 
@@ -27,20 +27,28 @@ const TarjetaPersonaje = ({personaje}) => {
     const [favorito, setFavorito] = useState(personajesFavoritos.some(checkPersonaje));
     const dispatch = useDispatch();
 
-    const onSeleccionarPersonaje = (personaje) => {
-        dispatch(seleccionarPersonaje(personaje));
+    const onFavoritoPersonaje = (personaje) => {
         dispatch(addPersonajeFavoritos(personaje));
     }
+
     const onEliminarPersonaje = (personaje) =>{
         dispatch(deletePersonajeFavoritos(personaje))
     }
 
+    const onSeleccionarPersonaje = (personaje) => {
+        dispatch(seleccionarPersonaje(personaje));
+        
+    }
+
     return <div className="tarjeta-personaje">
-       
-        <img src={personaje?.image} alt={personaje?.name}/>
+
+        <Link to="/detalle">
+            <img src={personaje?.image} alt={personaje?.name} onClick={()=>onSeleccionarPersonaje(personaje)}/>
+        </Link>
+        
         <div className="tarjeta-personaje-body">
             <span>{personaje?.name}</span>
-            <BotonFavorito esFavorito={(location.pathname==='/favoritos')?true: favorito} onClick={setFavorito} personaje={personaje} onSeleccionarPersonaje={onSeleccionarPersonaje} onEliminarPersonaje={onEliminarPersonaje}/>
+            <BotonFavorito esFavorito={favorito} onClick={setFavorito} personaje={personaje} onSeleccionarPersonaje={onFavoritoPersonaje} onEliminarPersonaje={onEliminarPersonaje}/>
         </div>
     </div>
 }

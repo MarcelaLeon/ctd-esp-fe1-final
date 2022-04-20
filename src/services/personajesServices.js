@@ -18,4 +18,12 @@ export const searchPersonaje = async (personaje)=>{
 
 
 
+export const getEpisodio = async (link)=>{
+    //console.log(typeof(link))
+    const response = await fetch(link)
+    const data = await response.json();
+    //console.log(data)
+    return data;
+}
+
 

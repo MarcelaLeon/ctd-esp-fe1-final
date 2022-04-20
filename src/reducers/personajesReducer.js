@@ -1,7 +1,7 @@
 const initialState = {
   busqueda: "",
   favoritos: [],
-  personajeFavorito: null
+  personajeSeleccionado: null
 }
 
 const reducer = (state= initialState, action) => {
@@ -12,7 +12,7 @@ const reducer = (state= initialState, action) => {
     case "SELECCIONAR_PERSONAJE":
         return {
             ...state,
-            personajeFavorito: action.payload.personaje,
+            personajeSeleccionado: action.payload.personaje,
         }
     case "AGREGAR_PERSONAJE_FAVORITOS":
       return {

@@ -35,9 +35,9 @@ const PaginaInicio = () => {
             <button className="danger">Test Button</button>
         </div>
         <Filtros buscador={buscador} setBuscador={setBuscador}/>
-        <Paginacion pagina={pagina} setPagina={setPagina} actualizarPagina={actualizarPagina}/>
+        <Paginacion pagina={pagina} actualizarPagina={actualizarPagina}/>
         <GrillaPersonajes pagina={pagina} personajes={personajes} setPersonajes={setPersonajes} />
-        <Paginacion pagina={pagina} setPagina={setPagina} actualizarPagina={actualizarPagina}/>
+        <Paginacion pagina={pagina} actualizarPagina={actualizarPagina}/>
     </div>
 }
 

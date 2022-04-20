@@ -12,11 +12,9 @@ const Paginacion = (props) => {
 
     return <div className="paginacion">
         <button disabled={(props.pagina===1)?true:false} className={"primary"}  onClick={()=> {
-            //props.setPagina(props.pagina - 1 )
             props.actualizarPagina(props.pagina - 1)
         }}>Anterior</button>
         <button disabled={false} className={"primary"} onClick={()=> {
-            //props.setPagina(props.pagina + 1 );
             props.actualizarPagina(props.pagina + 1)
         }}>Siguiente</button>
     </div>
