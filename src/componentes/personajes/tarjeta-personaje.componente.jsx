@@ -19,14 +19,12 @@ const TarjetaPersonaje = ({personaje}) => {
     const location = useLocation();
   
     const  personajesFavoritos = useSelector(state => state.personaje.favoritos);
-
-
-    //console.log(personajesFavoritos)
-    //console.log(personaje.id)
-   //console.log(personajesFavoritos.includes(personaje)) 
-    
-
-    const [favorito, setFavorito] = useState(personajesFavoritos.includes(personaje));
+   
+    function checkPersonaje(per) {
+        return per.id == personaje.id;
+    }
+  
+    const [favorito, setFavorito] = useState(personajesFavoritos.some(checkPersonaje));
     const dispatch = useDispatch();
 
     const onSeleccionarPersonaje = (personaje) => {

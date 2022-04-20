@@ -18,6 +18,11 @@ const PaginaInicio = () => {
     const [buscador, setBuscador] = useState('');
     const [personajes, setPersonajes] = useState([]);
 
+    const actualizarPagina = (page) => {
+      setPersonajes([]);
+      setPagina(page)
+    }
+
     useEffect(() => {
         searchPersonaje(buscador).then((data) => {
           setPersonajes(data);
@@ -30,9 +35,9 @@ const PaginaInicio = () => {
             <button className="danger">Test Button</button>
         </div>
         <Filtros buscador={buscador} setBuscador={setBuscador}/>
-        <Paginacion pagina={pagina} setPagina={setPagina}/>
+        <Paginacion pagina={pagina} setPagina={setPagina} actualizarPagina={actualizarPagina}/>
         <GrillaPersonajes pagina={pagina} personajes={personajes} setPersonajes={setPersonajes} />
-        <Paginacion pagina={pagina} setPagina={setPagina}/>
+        <Paginacion pagina={pagina} setPagina={setPagina} actualizarPagina={actualizarPagina}/>
     </div>
 }
 
