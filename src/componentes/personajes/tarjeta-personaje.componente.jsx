@@ -1,10 +1,10 @@
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import BotonFavorito from '../botones/boton-favorito.componente';
 import './tarjeta-personaje.css';
 import {useDispatch} from "react-redux";
 import { seleccionarPersonaje , addPersonajeFavoritos, deletePersonajeFavoritos} from '../../actions/personajes';
 import { useSelector } from "react-redux";
-import { useLocation, Link } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 /**
  * Tarjeta para cada personaje dentro de la grilla de personajes. 
@@ -15,13 +15,11 @@ import { useLocation, Link } from 'react-router-dom';
  * @returns un JSX element 
  */
 const TarjetaPersonaje = ({personaje}) => {
-
-    const location = useLocation();
   
     const  personajesFavoritos = useSelector(state => state.personaje.favoritos);
    
     function checkPersonaje(per) {
-        return per.id == personaje.id;
+        return per.id === personaje.id;
     }
   
     const [favorito, setFavorito] = useState(personajesFavoritos.some(checkPersonaje));

@@ -27,7 +27,7 @@ const PaginaDetalle = () => {
     const  personajesFavoritos = useSelector(state => state.personaje.favoritos);
    
     function checkPersonaje(per) {
-        return per.id == personaje.id;
+        return per.id === personaje.id;
     }
   
     const [favorito, setFavorito] = useState(personajesFavoritos.some(checkPersonaje));
@@ -40,7 +40,8 @@ const PaginaDetalle = () => {
         dispatch(deletePersonajeFavoritos(personaje))
     }
 
-    return <div className="container">
+    return <>
+    {(personaje===null)?<div className="container"><p>No haz seleccionado ningun personaje</p></div>:<div className="container"> 
         <h3>{personaje?.name}</h3>
         <div className={"detalle"}>
             <div className={"detalle-header"}>
@@ -60,7 +61,9 @@ const PaginaDetalle = () => {
                 return <TarjetaEpisodio link={link}/>
             })}
         </div>
-    </div>
+    </div>}
+    </>
+    
 }
 
 export default PaginaDetalle

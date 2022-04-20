@@ -13,7 +13,7 @@ const Filtros = (props) => {
     }
 
     return <form className="filtros" onSubmit={(e)=>handlerBuscador(e)}>
-        <label for="nombre">Filtrar por nombre:</label>
+        <label htmlFor="nombre">Filtrar por nombre:</label>
         <input type="text" placeholder="Rick, Morty, Beth, Alien, ...etc" name="nombre" value={props.buscador} onChange={(e) => {props.setBuscador(e.target.value)}} autoFocus={true}/>
     </form>
 }
